@@ -13,7 +13,7 @@ app.use('/admin', require('./Routes/adminRoutes'))
 app.use('/adotantes', require('./Routes/adotanteRoutes'))
 app.use('/resgates', require('./Routes/resgateRoutes'))
 
-const server = app.listen(3000, function(){
+const server = app.listen({port: 3000, host: "0.0.0.0"}, function(){
    const host = server.address().address;
    const port = server.address().port;
    console.log(`Servidor iniciado em http://localhost:${port}`)
