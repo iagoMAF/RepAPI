@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon src/app.js",
+    "build": "tsup src --out-dir build"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +15,7 @@
     "express": "^4.18.2",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.20",
+    "tsup": "^7.1.0",
     "uuid": "^9.0.0"
   }
 }
