@@ -293,14 +293,22 @@ var require_resgateRoutes = __commonJS({
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
+var port = process.env.PORT || 5e3;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "apieng.onrender.com");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 app.use("/animais", require_animalRoutes());
 app.use("/admin", require_adminRoutes());
 app.use("/adotantes", require_adotanteRoutes());
 app.use("/resgates", require_resgateRoutes());
-var server = app.listen(3e3, function() {
+var server = app.listen({ port, host: "0.0.0.0" }, function() {
   const host = server.address().address;
-  const port = server.address().port;
-  console.log(`Servidor iniciado em http://localhost:${port}`);
+  console.log(`Servidor iniciado`);
 });
