@@ -25,6 +25,7 @@ class Resgate{
 
         console.log(query.sql); 
         connection.end();
+        callback();
     }
 }
 

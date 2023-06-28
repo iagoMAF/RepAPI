@@ -94,6 +94,7 @@ class CadAnimal{
 
         console.log(query.sql); 
         connection.end();
+        callback();
     }
 
 

@@ -25,6 +25,7 @@ class Adotante{
 
         console.log(query.sql); 
         connection.end();
+        callback();
     }
 }
 
